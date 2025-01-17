@@ -1,0 +1,244 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: white;
+    color: black;
+}
+
+header {
+    background-color: white;
+    color: black;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ccc; /* Add bottom border in light mode */
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+nav {
+    position: relative;
+}
+
+.menu-toggle {
+    display: none;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.menu-toggle:hover {
+    background-color: #0056b3;
+}
+
+#menu {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 1rem;
+}
+
+#menu.hidden {
+    display: none;
+}
+
+#menu li {
+    display: inline;
+}
+
+#menu li a {
+    color: black;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#menu li a:hover {
+    color: #007bff; /* Blue color on hover */
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+#search-input {
+    padding: 0.5rem;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    width: 300px; /* Make the search box wider */
+}
+
+#search-input::placeholder {
+    color: #aaa;
+}
+
+#search-button {
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: #007bff; /* Blue color */
+    color: white;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+.theme-toggle {
+    padding: 0.5rem;
+    border-radius: 50%;
+    border: none;
+    background-color: black; /* Black color */
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-toggle:hover {
+    background-color: #333; /* Darker black on hover */
+}
+
+main {
+    padding: 1rem;
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+
+.article {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    text-decoration: none; /* Remove underline */
+    color: inherit; /* Inherit color */
+}
+
+.article img {
+    width: 100%;
+    height: auto;
+    border-bottom: 1px solid #ccc;
+}
+
+.article h3 {
+    margin: 0.5rem;
+}
+
+.article p {
+    margin: 0.5rem;
+}
+
+.article .meta {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0.5rem;
+}
+
+.article:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    background-color: white;
+    color: black;
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid #ccc; /* Add top border in light mode */
+}
+
+body.dark-mode {
+    background-color: black;
+    color: white;
+}
+
+body.dark-mode header,
+body.dark-mode footer {
+    background-color: black;
+    color: white;
+    border: none; /* Remove borders in dark mode */
+}
+
+body.dark-mode nav ul li a {
+    color: white;
+}
+
+body.dark-mode #search-input {
+    background-color: #333;
+    color: white;
+    border: 1px solid #555;
+}
+
+body.dark-mode #search-button,
+body.dark-mode .theme-toggle {
+    background-color: white;
+    color: black;
+}
+
+body.dark-mode #search-button:hover,
+body.dark-mode .theme-toggle:hover {
+    background-color: #ccc;
+}
+
+body.light {
+    background-color: white;
+    color: black;
+}
+
+body.dark {
+    background-color: black;
+    color: white;
+}
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    #menu {
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+    }
+
+    #menu li {
+        display: block;
+        margin: 0.5rem 0;
+    }
+
+    .search-container {
+        width: 100%;
+        justify-content: space-between;
+        margin-top: 1rem;
+    }
+
+    #search-input {
+        width: calc(100% - 120px); /* Adjust width for mobile */
+    }
+
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr); /* Adjust grid for mobile */
+    }
+}

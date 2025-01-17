@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>News Website</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>News Website</h1>
+        <nav>
+            <button id="menu-toggle" class="menu-toggle">Categories</button>
+            <ul id="menu">
+                <li><a href="#general" data-category="general">World</a></li>
+                <li><a href="#technology" data-category="technology">Technology</a></li>
+                <li><a href="#sports" data-category="sports">Sports</a></li>
+                <li><a href="#entertainment" data-category="entertainment">Entertainment</a></li>
+                <li><a href="#business" data-category="business">Business</a></li>
+                <li><a href="#health" data-category="health">Health</a></li>
+                <li><a href="#science" data-category="science">Science</a></li>
+            </ul>
+        </nav>
+        <div class="search-container">
+            <input type="text" id="search-input" placeholder="Search any news...">
+            <button id="search-button">Search</button>
+            <button id="theme-toggle" class="theme-toggle">
+                <span id="theme-icon" class="theme-icon">🌞</span>
+            </button>
+        </div>
+    </header>
+    <main>
+        <section id="home">
+            <h2>Latest News</h2>
+            <div id="news-container"></div>
+        </section>
+        <!-- Add more sections as needed -->
+    </main>
+    <footer>
+        <p>&copy; 2023 News Website</p>
+    </footer>
+    <script src="script.js"></script>
+    <script>
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const currentTheme = localStorage.getItem('theme') || 'light';
+
+        document.body.classList.add(currentTheme);
+        themeIcon.textContent = currentTheme === 'light' ? '🌞' : '🌜';
+
+        themeToggle.addEventListener('click', () => {
+            const newTheme = document.body.classList.contains('light') ? 'dark' : 'light';
+            document.body.classList.remove('light', 'dark');
+            document.body.classList.add(newTheme);
+            themeIcon.textContent = newTheme === 'light' ? '🌞' : '🌜';
+            localStorage.setItem('theme', newTheme);
+        });
+    </script>
+</body>
+</html>
